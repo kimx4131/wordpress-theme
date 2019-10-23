@@ -1,0 +1,402 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: $primeryTextColor;
+}
+
+time{
+    color: $primeryTextColor;
+}
+
+h1, h2, h3, h4{
+    font-weight: 600;
+    margin-bottom: $pixelsTeen;
+    text-transform: uppercase;
+}
+@media only screen and (max-width: 576px){
+    h1{
+        margin-top: $pixelsTeen*2.5;
+    }
+}
+
+a{
+    color: $colorBlue;
+
+    &:visited{
+        color: $colorPurple;
+    }
+
+    &:hover{
+        color: $colorPurple;
+        text-decoration: none;
+    }
+}
+
+p{
+    line-height: 30px;
+}
+
+ul{
+    margin-left: $pixelsTeen;
+}
+
+//General side opsætning
+#page{
+    @extend .container;
+}
+
+#masthead, #content, #colophon{
+    @extend .row;
+}
+
+/* - - - - - - - - - - - - - - - - - - */
+//HEADER
+#masthead{
+    align-items: center;
+    height: 60px;
+    margin-bottom: $pixelsTeen;
+}
+
+.site-branding{ // område med logo og title
+    @extend .col-md-4;
+
+    .site-title{
+        font-size: 1rem;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 0;
+    }
+}
+
+#site-navigation{ //Menuen
+    @extend .col-md-8;
+    display: flex;
+    justify-content: flex-end;
+
+    li{
+        margin-left: 1.3rem;
+
+        a{
+            color: $primeryTextColor;
+            font-weight: 400;
+
+            &:visited{
+                color: $primeryTextColor;
+            }
+        }
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - */
+//PAGEINDEX - PAGE
+#primary-full{
+    @extend .col-12;
+
+    .entry-title{
+        display: none;
+    }
+
+    .wp-block-columns.has-2-columns{
+        display: flex;
+        align-items: center;
+    }
+
+    .wp-block-button__link{
+        @include my-btn;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    #primary-full{
+        .wp-block-columns.has-2-columns{
+            margin-bottom: $pixelsTeen*5;
+        }
+
+        .vendom{
+            display: -webkit-flex; /* Safari */
+            -webkit-flex-direction: column-reverse; /* Safari 6.1+ */
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    } 
+}
+
+
+/* - - - - - - - - - - - - - - - - - - */
+//ALM SIDE - PAGE
+#primary-almside{
+    @extend .col-12;
+
+    p, .wp-block-quote{
+        margin-bottom: 30px;
+    }
+
+    
+}
+
+/* - - - - - - - - - - - - - - - - - - */
+//BLOG SIDE - PAGE
+.blog{
+    #primary{
+        @extend .col-md-9;
+
+        .comments-link, .post-edit-link{
+            display: none;
+        }
+
+        .post-thumbnail{
+            img{
+                border-radius: $pixelsTeen;
+            }
+        }
+
+        .more-link{
+            display: none;
+        }
+        #main{
+            // columns: 2;
+            @extend .card-deck;
+
+            .post{
+                @extend .card;
+                min-width: 46%;
+                margin-bottom: 15px*2;
+                background: transparent;
+                border: none;
+                
+                p{
+                    text-align: justify;
+                }
+            }
+
+            .entry-footer{
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    .has-medium-font-size{
+        font-size: 1rem;
+    }
+
+    .has-drop-cap:not(:focus):first-letter{
+        font-size: 2.4rem;
+    }
+    .entry-title{
+        display: block;
+    }
+   
+}
+
+
+#secondary{ //Sidebar på siden
+    @extend .col-md-3;
+    margin-top: $pixelsTeen*5;
+
+    ul{
+        margin-left: 10px;
+    }
+
+    .widget-title{
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .search-form{
+        label{
+            width: 50%;
+        }
+
+        .search-field{
+            color: $colorPurple;
+            border: 1px solid $colorPurple;
+            border-radius: 3px;
+            padding: $pixelsTeen/2;
+            width: 100%;
+        }
+    
+        .search-submit{
+            @include my-btn;
+        }
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - */
+//INDLÆG / POSTS
+.entry-title{
+    a{
+        color: $primeryTextColor;
+    }
+}
+
+.single-post{
+    #primary{
+        @extend .col-md-8;
+
+        .wp-block-quote.is-style-large{
+            margin-bottom: 30px;
+        }
+    }
+    
+    .attachment-post-thumbnail{
+        width: 100%;
+    }
+    
+    .entry-content{
+        p{
+            text-indent: 15px;
+            text-align: justify;
+        }
+        .entry-content{
+            text-indent: 0px;
+        }
+    }
+}
+
+.submit, button, input[type="button"], input[type="reset"], input[type="submit"]{
+    @include my-btn;
+}
+
+label[for="wp-comment-cookies-consent"]{
+    font-size: 0.85rem;
+    margin-left: $pixelsTeen/2;
+}
+
+.comment-form-author label, .comment-form-email label, .comment-form-url label{
+    width: 15%;
+}
+
+.comment-form-url{
+    display: none;
+}
+
+/* - - - - - - - - - - - - - - - - - - */
+//COMPONENTER
+//Citat
+.wp-block-quote.is-style-large{
+    margin: 0 40px;
+    text-align: center;
+    
+    p{
+        font-weight: 100;
+        margin-bottom: 10px !important;
+        font-size: 1.4rem;
+    }
+
+    cite{
+        color: $sekunderyTextColor;
+    }
+}
+
+//Collone opsætning
+.wp-block-columns.has-4-columns{
+    h5,p{
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    img{
+        border-radius: 100%;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: auto;
+
+    }
+
+    .wp-block-quote{
+        text-align: center;
+        margin: 0 10px;
+
+        p{
+            font-weight: 100;
+            margin-bottom: 10px !important;
+        }
+        cite{
+            color: $sekunderyTextColor;
+        }
+    }
+}
+
+//Stort første bogstav - artikel stil
+.has-drop-cap:not(:focus):first-letter{
+    font-size: 4.4rem;
+    font-weight: 200;
+}
+
+//jombotron
+.jumbotron{
+    background-color: $colorPurpleTrans;
+    
+    color: white;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - */
+//FOOTER
+#colophon{ //Footer
+    margin: 0;
+}
+
+.site-footer{ //Footer
+    @extend .col-12;
+    height: 60px;
+    // display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p{
+        margin: 0;
+    }
+}
+
+
+
+
+
+
+/* - - - - - - - - - - - - - - - - - - */
+//MENU
+@media only screen and (max-width: 576px){
+    .menu-menu-1-container{
+        display: flex;
+        position: absolute;
+        background-color: $colorbg;
+        width: 100%;
+        left: 0;
+        z-index: 100;
+        top: 45px
+    }
+    
+    .menu-toggle, .main-navigation.toggled ul {
+        display: block;
+    }
+    
+    .main-navigation.toggled ul {
+        display: block;
+        width: 100%;
+    
+        li{
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: $pixelsTeen*1.5;
+            margin-top: $pixelsTeen*1.5;
+        }
+    }
+    #site-navigation li{
+        margin-left: 0;
+    }
+    
+    
+    .main-navigation li {
+        float: none;
+        position: inherit;
+    }
+}
+
+
+
+
+
+
+
+

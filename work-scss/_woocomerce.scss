@@ -1,0 +1,115 @@
+/* - - - - - - - - - - - - - - - - - - */
+//SHOP
+.woocommerce span.onsale{
+    background: $colorBlue;
+}
+
+.woocommerce ul.products li.product .price{
+    color: $colorPurple;
+}
+
+.woocommerce ul.products li.product .button, .woocommerce div.product form.cart .button, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
+    @include my-btn;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - */
+//SINGLE PRODUCKT
+.woocommerce #secondary{
+    display: none;
+}
+
+.woocommerce #primary{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.woocommerce div.product p.price{
+    color: $primeryTextColor;
+}
+
+.woocommerce div.product span.price, .woocommerce div.product .stock{
+    color: $colorBlue;
+}
+
+.woocommerce div.product .out-of-stock{
+    color: $colorPurple;
+}
+
+.woocommerce-message{
+    border-top-color: $colorPurple;
+}
+
+.woocommerce-message::before{
+    color: $colorBlue;
+}
+
+.single-product{
+    .pswp__caption__center{
+        display: none;
+    }
+
+    .pswp__item, .pswp__ui--fit .pswp__top-bar, .pswp__ui--fit .pswp__caption{
+        background-color: white;
+    }
+
+    .woocommerce div.product .woocommerce-tabs ul.tabs li.active{
+        background: transparent;
+        border-bottom-color: #F4F4F4;
+    }
+
+    .posted_in{
+        display: block;
+    }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - */
+//KURV
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
+    background: $colorPurple;
+
+    &:hover{
+        background: $colorBlue;
+    }
+}
+
+.woocommerce #content table.cart td.actions .input-text, .woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text{
+    width: 45%;
+}
+
+.woocommerce-info{
+    border-top-color: $colorPurple;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - */
+//CHECKOUT
+#order_comments_field, .woocommerce-input-wrapper{
+    width: 100%;
+}
+
+.woocommerce-billing-fields__field-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+    p{
+        display: block;
+        width: 45%;
+        margin-right: $pixelsTeen*2;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    #primary-almside p, #primary-almside{
+        width: 100%;
+    }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - */
+//PAYMENT
+.stripe-card-group, #stripe-exp-element, #stripe-cvc-element{
+    width: 50%;
+}
